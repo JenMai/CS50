@@ -1,7 +1,7 @@
 /**
  * Original file provided to make whodunit.c and resize.c:
  * https://github.com/cs50/problems/archive/whodunit.zip
- * questions.txt provides a list of questions I answered to, in order to understand that code introducing
+ * questions.txt provides a list of questions I answered to, in order to understand this code introducing
  * pointers, structs and memory allocation.
  */
  
