@@ -1,0 +1,47 @@
+1.  What’s stdint.h?
+A header file providing integer types holding the same width (the number of bits used to store its value) 
+whichever the system where the program is compiled and run.
+
+2.  What’s the point of using uint8_t, uint32_t, int32_t, and uint16_t in a program?
+We want to be sure that the integers we are storing are going to be of width 8-, 16- or 32-bits whichever the system used to compile
+and run the program. For example an integer N could be 4 bytes (32 bits) in one system, and 8 bytes (64 bits) in another
+(leading to overflows, misleading memory addresses, segmentation faults..?) and a fixed-width integer prevents that situation.
+
+3.  How many bytes is a BYTE, a DWORD, a LONG, and a WORD, respectively?
+A BYTE is 1 byte; a DWORD and a LONG are both 4 bytes; a WORD is 2 bytes. 
+
+4.  What (in ASCII, decimal, or hexadecimal) must the first two bytes of any BMP file be? 
+    Leading bytes used to identify file formats (with high probability) are generally called "magic numbers."
+The first two bytes of any BMP file must be bfType, which checks whether it is a bitmap file.
+
+5.  What’s the difference between bfSize and biSize?
+bfSize determines the size of the whole bitmap file, biSize is the size of the data structure BITMAPINFOHEADER.
+
+6.  What does it mean if biHeight is negative?
+It means that the bmp will start buffer/be placed in memory starting the upper-left pixel and the top row, to bottom row.
+
+7.  What field in BITMAPINFOHEADER specifies the BMP’s color depth (i.e., bits per pixel)?
+biBitCount specifies the bits per pixels. The higher it is, the deeper colors can be.
+
+8.  Why might fopen return NULL in lines 24 and 32 of copy.c?
+fopen returns NULL in line 24 if the file to read doesn't exist. As for line 32, it returns NULL if 
+a nonexistent directory is indicated, or if the user doesn't have the permissions to create that file.
+
+9.  Why is the third argument to fread always 1 in our code?
+Because the function read one "block" of a set amount of bytes at a time. For instance, we want to read
+and write the pixels one pixel at a time, which is a "block" of 3 bytes (blue, green, red, or the "sizeof" RGBTRIPLE).
+
+10. What value does line 65 of copy.c assign to padding if bi.biWidth is 3?
+It is going to assign 3.
+( 4 - ( 3*3 ) % 4 ) % 4
+Which means the file is going to have 3 bytes of padding ( 3 pixels wide * 3 bytes per pixel is 9 bytes, it needs 3 more bytes
+to become a multiple of 4, which is required for a bitmap file).
+
+11. What does fseek do?
+It changes the position of a file pointer in a file without the need to read every bytes between the former and the new position, 
+the change is expressed in byte and executed from the start, the end of the file, or the pointer's current position.
+For copy.c and whodunit.c, it changes the position of the pointer by moving it to the next position after the padding, 
+thus skipping them from being written into the bitmap's copy. Otherwise, it would write extra black (0x000000) pixels per question n.10
+
+12. What is SEEK_CUR?
+A parameter in fseek changing the location of the file pointer relatively to where its current position is in the file.
