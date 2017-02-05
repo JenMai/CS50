@@ -1,5 +1,5 @@
 /**
- * Build stairs such as the first level of Mario.
+ * Build stairs such as the first level of Super Mario.
  * Few edits needed (less messy loop conditions, comments)
  */
 
