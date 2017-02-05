@@ -5,18 +5,16 @@
 #define DIME 10
 #define NICKEL 5
 #define PENNY 1
- 
+
 int total = 0;
- 
+
 int get_coins( int x, int Y );
  
 int main(void)
 {
     float dollars;
                                            
-    /*
-     * Gets a non-negative float input from user (turns into float if integer)
-     */
+    // -- get a non-negative float input from user (turns into float if integer) --
     printf("O hai! ");
     do
     {
@@ -25,9 +23,9 @@ int main(void)
     }
     while( dollars < 0 );
    
-    /*
-     * Gets the minimum number of coins needed
-     */
+
+    //-- get the minimum number of coins needed --
+   
     while (dollars >= 1)
     {
         total += 4;                                // 4 quarters in a dollar, removes one dollar from input
@@ -44,10 +42,8 @@ int main(void)
     printf("%i\n", total);                          //the total number of coins needed
  
 }
- 
-/*
- * Gets the highest number of coin possible for quarters, then dimes...
- */
+
+// -- to get the highest number of coin possible for quarters, then dimes... --
 int get_coins( int x, int Y )  
 {
     while( x/Y > 0 )
