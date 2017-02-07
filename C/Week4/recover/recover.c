@@ -47,7 +47,7 @@ int main (int argc, char *argv[])
 				{
 					fclose(outptr);
 					sprintf(imgname, "%03i.jpg", n);	// name, open and write a new jpeg
-                    outptr = fopen(imgname, "w");
+                    			outptr = fopen(imgname, "w");
 					fwrite(&buffer, 512, 1, outptr);
 					n++;
 				}
