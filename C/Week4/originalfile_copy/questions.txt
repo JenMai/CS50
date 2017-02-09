@@ -40,7 +40,7 @@ to become a multiple of 4, which is required for a bitmap file).
 11. What does fseek do?
 It changes the position of a file pointer in a file without the need to read every bytes between the former and the new position, 
 the change is expressed in byte and executed from the start, the end of the file, or the pointer's current position.
-For copy.c and whodunit.c, it changes the position of the pointer by moving it to the next position after the padding, 
+For copy.c and whodunit.c, it changes the pointer's position by moving it to the next position after the padding, 
 thus skipping them from being written into the bitmap's copy. Otherwise, it would write extra black (0x000000) pixels per question n.10
 
 12. What is SEEK_CUR?
