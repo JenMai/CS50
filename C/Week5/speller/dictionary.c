@@ -19,10 +19,10 @@ typedef struct node
     struct node* alpha_child[27];
 }
 node;
-node *alpha_root;                                               //keep track of the trie's root.
+node *alpha_root;                                               // keep track of the trie's root.
 node *trav;
 
-unsigned int dict_counter = 0;                                  //dictionary's words counter, to be fixed
+unsigned int dict_counter = 0;                                  // dictionary's words counter, to be fixed
 
 /**
  * Returns true if word is in dictionary else false.
@@ -31,7 +31,7 @@ bool check(const char *word)
 {
     trav = alpha_root;                                           // set trav pointer at root
     
-    for(int index = 0, i = 0; word[index] != '\0'; index++)      //for each char in word
+    for(int index = 0, i = 0; word[index] != '\0'; index++)      // for each char in word
     {
         if (isalpha(word[index]))                                // set corresponding element for alpha_child
         {
@@ -70,15 +70,15 @@ bool load(const char *dictionary)
 {
     FILE *fptr;
     
-    fptr = fopen(dictionary, "r");                                //open and read dictionary
+    fptr = fopen(dictionary, "r");                                // open and read dictionary
     
     if (fptr == NULL)
     {
         return false;
     }
     
-    alpha_root = malloc(sizeof(node));                            //assign memory to root
-    trav = alpha_root;                                            //pointer travelling through arrays of pointers
+    alpha_root = malloc(sizeof(node));                            // assign memory to root
+    trav = alpha_root;                                            // pointer travelling through arrays of pointers
     int c = fgetc(fptr);                                          // keep track of the char pointed (its ASCII value)
     int i = c - 'a';                                              // hashcode for each letter + apostrophe
     
@@ -87,7 +87,7 @@ bool load(const char *dictionary)
         if (isalpha(c))
         {
             i = c - 'a';
-            if (trav->alpha_child[i] == NULL)                     //if trav points to NULL (no pointer previously generated)
+            if (trav->alpha_child[i] == NULL)                     // if trav points to NULL (no pointer previously generated)
             {
                 trav->alpha_child[i] = malloc(sizeof(node));      // allocate memory to node
                 trav = trav -> alpha_child[i];                    // go to that node for next loop
