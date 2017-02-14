@@ -19,15 +19,47 @@ typedef struct node
     struct node* alpha_child[27];
 }
 node;
-node *alpha_root; //keep track of the trie's root.
+node *alpha_root;                                               //keep track of the trie's root.
+node *trav;
+
+unsigned int dict_counter = 0;                                  //dictionary's words counter, to be fixed
 
 /**
  * Returns true if word is in dictionary else false.
  */
 bool check(const char *word)
 {
-    // TODO
-    return false;
+    trav = alpha_root;                                           // set trav pointer at root
+    
+    for(int index = 0, i = 0; word[index] != '\0'; index++)      //for each char in word
+    {
+        if (isalpha(word[index]))                                // set corresponding element for alpha_child
+        {
+            i = tolower(word[index]) - 'a';
+        }
+        else                                                     // if apostrophe
+        {
+            i = 27;
+        }
+        
+        if (trav -> alpha_child[i] == NULL)                       // if trav points to NULL, word is misspelled/not in dictionary
+        {
+           return false; 
+        }
+        else                                                      // if char corresponds to hashcode in node
+        {
+            trav = trav -> alpha_child[i];
+        }
+    }
+    
+    if(trav -> is_word == true)                                   // check if last char correspond to end of word in dictionary.
+    {
+        return true;
+    }
+    else                                                          // is not a word in dictionary
+    {
+        return false;
+    }
 }
 
 /**
@@ -46,7 +78,7 @@ bool load(const char *dictionary)
     }
     
     alpha_root = malloc(sizeof(node));                            //assign memory to root
-    node *trav = alpha_root;                                      //pointer travelling through arrays of pointers
+    trav = alpha_root;                                            //pointer travelling through arrays of pointers
     int c = fgetc(fptr);                                          // keep track of the char pointed (its ASCII value)
     int i = c - 'a';                                              // hashcode for each letter + apostrophe
     
@@ -83,6 +115,7 @@ bool load(const char *dictionary)
         else                                                     // new line reached, end of the word
         {
             trav -> is_word = true;
+            dict_counter++;
             trav = alpha_root;
         }
     }
@@ -106,8 +139,7 @@ bool load(const char *dictionary)
  */
 unsigned int size(void)
 {
-    // TODO
-    return 0;
+        return 0;
 }
 
 /**
