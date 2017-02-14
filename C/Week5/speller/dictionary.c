@@ -78,6 +78,13 @@ bool load(const char *dictionary)
     }
     
     alpha_root = malloc(sizeof(node));                            // assign memory to root
+    
+    if (alpha_root == NULL)                                       // check if malloc'd successfully
+    {
+        printf("Memory allocation failed.");
+        return false;
+    }
+    
     trav = alpha_root;                                            // pointer travelling through arrays of pointers
     int c = fgetc(fptr);                                          // keep track of the char pointed (its ASCII value)
     int i = c - 'a';                                              // hashcode for each letter + apostrophe
@@ -87,9 +94,16 @@ bool load(const char *dictionary)
         if (isalpha(c))
         {
             i = c - 'a';
-            if (trav->alpha_child[i] == NULL)                     // if trav points to NULL (no pointer previously generated)
+            if (trav->alpha_child[i] == NULL)                     //if trav points to NULL (no pointer previously generated)
             {
                 trav->alpha_child[i] = malloc(sizeof(node));      // allocate memory to node
+                
+                if (trav->alpha_child[i] == NULL)
+                {
+                    printf("Memory allocation failed.");
+                    return false;
+                }
+                
                 trav = trav -> alpha_child[i];                    // go to that node for next loop
             }
             else                                                  // if trav points to an existing node (letter encountered in that branche)
@@ -104,6 +118,12 @@ bool load(const char *dictionary)
             if (trav->alpha_child[i] == NULL)
             {
                 trav->alpha_child[i] = malloc(sizeof(node));
+                
+                if (trav->alpha_child[i] == NULL)
+                {
+                    printf("Memory allocation failed.");
+                    return false;
+                }
                 trav = trav -> alpha_child[i];
             }
             else
