@@ -17,13 +17,13 @@ as "relevant" as time_check etc... So no need to use more memory for them to kee
 4.  Explain as precisely as possible, in a paragraph or more, how main goes about reading words from a file. In other words, 
     convince us that you indeed understand how that function’s for loop works.
 - After ensuring proper usage, variables are declared to keep track of the word's index in the char array "word", which stocks each word
-in an allocated space of LENGTH+1 (45 characters + '/0'); to keep track of misspelled words and words in total. The for loop stores one
+in an allocated space of LENGTH+1 (45 characters + '\0'); to keep track of misspelled words and words in total. The for loop stores one
 character at a time from a textfile (with a file pointer and a function called fgetc) in a variable "c" and ends when End of File is reached.
 - Once the loop starts, if the pointer points to an alphabetical character or an apostrophe (as long as the latter is within a word), the char
 is stored in the array called word and index is incremented to be associated with the next alphabetical char. However, if index is more than 45,
 the count is reset for the next word and the current word is ignored. 
 - Else if a number is pointed at, the counter is also reset for the next word, the current word is ignored.
-- If other if-statements aren't fulfilled, we must have a whole word, the current word is ended with a '/0' (end marker in memory for a string),
+- If other if-statements aren't fulfilled, we must have a whole word, the current word is ended with a '\0' (end marker in memory for a string),
 the total word counter (words) is incremented. A bool function checks whether the word is misspelled (using a loaded dictionary), 
 if so (returns True), it prints the word and increment misspellings. Finally, the index is reset for next words.
 - Once fgetc pointed at every character until EOF, an error is returned if any, the textfile is closed, dictionary used is unloaded (if possible)
@@ -32,7 +32,7 @@ and stats about the textfile and functions' running time are printed.
 5.  Why do you think we used fgetc to read each word’s characters one at a time rather than use fscanf with a format string like "%s" 
     to read whole words at a time? Put another way, what problems might arise by relying on fscanf alone?
 If fscanf passed through wole words at a time, they would be passed in before checking if each of those words are legal, leading in
-unnecessary resources used.
+unnecessary resources used. (?)
 
 6.  Why do you think we declared the parameters for check and load as const (which means "constant")?
 The word going through check and the loaded dictionary must not be altered at all by the program through its execution. 
