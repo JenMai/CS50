@@ -22,7 +22,11 @@ node;
 node *alpha_root;                                               // keep track of the trie's root.
 node *trav;
 
+<<<<<<< HEAD
 unsigned int dict_counter = 0;                                  // dictionary's words counter
+=======
+unsigned int dict_counter = 0;                                  // dictionary's words counter, to be fixed
+>>>>>>> origin/master
 
 /**
  * Returns true if word is in dictionary else false.
@@ -77,7 +81,11 @@ bool load(const char *dictionary)
         return false;
     }
     
+<<<<<<< HEAD
     alpha_root = calloc(1, sizeof(node));                         // initialize and allocate memory to root
+=======
+    alpha_root = malloc(sizeof(node));                            // assign memory to root
+>>>>>>> origin/master
     
     if (alpha_root == NULL)                                       // check if malloc'd successfully
     {
@@ -96,7 +104,11 @@ bool load(const char *dictionary)
             i = c - 'a';
             if (trav->alpha_child[i] == NULL)                     //if trav points to NULL (no pointer previously generated)
             {
+<<<<<<< HEAD
                 trav->alpha_child[i] = calloc(1, sizeof(node));   // assign and allocate memory to node
+=======
+                trav->alpha_child[i] = malloc(sizeof(node));      // allocate memory to node
+>>>>>>> origin/master
                 
                 if (trav->alpha_child[i] == NULL)
                 {
@@ -117,7 +129,11 @@ bool load(const char *dictionary)
             i = 26;
             if (trav->alpha_child[i] == NULL)
             {
+<<<<<<< HEAD
                 trav->alpha_child[i] = calloc(1, sizeof(node));
+=======
+                trav->alpha_child[i] = malloc(sizeof(node));
+>>>>>>> origin/master
                 
                 if (trav->alpha_child[i] == NULL)
                 {
