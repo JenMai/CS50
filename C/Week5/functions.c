@@ -20,9 +20,10 @@ typedef struct node
 }
 node;
 node *alpha_root;                                               // keep track of the trie's root.
+node *alpha_child;
 node *trav;
 
-unsigned int dict_counter = 0;                                  // dictionary's words counter
+unsigned int dict_counter = 0;                                  // dictionary's words counter, to be fixed
 
 /**
  * Returns true if word is in dictionary else false.
@@ -77,7 +78,7 @@ bool load(const char *dictionary)
         return false;
     }
     
-    alpha_root = calloc(1, sizeof(node));                         // initialize and allocate memory to root
+    alpha_root = malloc(sizeof(node));                            // assign memory to root
     
     if (alpha_root == NULL)                                       // check if malloc'd successfully
     {
@@ -96,7 +97,7 @@ bool load(const char *dictionary)
             i = c - 'a';
             if (trav->alpha_child[i] == NULL)                     //if trav points to NULL (no pointer previously generated)
             {
-                trav->alpha_child[i] = calloc(1, sizeof(node));   // assign and allocate memory to node
+                trav->alpha_child[i] = malloc(sizeof(node));      // allocate memory to node
                 
                 if (trav->alpha_child[i] == NULL)
                 {
@@ -117,7 +118,7 @@ bool load(const char *dictionary)
             i = 26;
             if (trav->alpha_child[i] == NULL)
             {
-                trav->alpha_child[i] = calloc(1, sizeof(node));
+                trav->alpha_child[i] = malloc(sizeof(node));
                 
                 if (trav->alpha_child[i] == NULL)
                 {
@@ -159,10 +160,6 @@ bool load(const char *dictionary)
  */
 unsigned int size(void)
 {
-    if (dict_counter > 0)
-        return dict_counter;
-    
-    else
         return 0;
 }
 
@@ -173,15 +170,15 @@ void unload_node(node *ptr)
 {
     for (int i = 0; i < 27; i++)
     {
-        if (ptr->alpha_child[i] == NULL)                        //base case: pointer points to NULL, look at next index
+        if (ptr->alpha_child[i] == NULL) //base case: pointer points to NULL
             continue;
         
-        else                                                    //recursive case: go into that index, check its sub-tries
+        else //recursive case: 
             unload_node(ptr->alpha_child[i]);
     }
 
     free(ptr);
-    return;                                                     // free  non-NULL nodes from bottom to top
+    return;
 }
 
 /**

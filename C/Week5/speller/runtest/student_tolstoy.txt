@@ -1,0 +1,8 @@
+WORDS MISSPELLED:     13008
+WORDS IN DICTIONARY:  143091
+WORDS IN TEXT:        567967
+TIME IN load:         0.07
+TIME IN check:        0.43
+TIME IN size:         0.00
+TIME IN unload:       0.06
+TIME IN TOTAL:        0.56
