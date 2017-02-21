@@ -5,7 +5,9 @@
 
 int main( int argc, string argv[] )
 {
-    //// user must enter only one argument (key) after launch command ////
+    /*
+     * Checks if user only entered one argument (key) after launch command
+     */
     if( argc > 2 )
     {
         return 1;
@@ -23,7 +25,9 @@ int main( int argc, string argv[] )
     
     printf( "ciphertext: " );
     
-    //// cipher and print one character at a time in p ////
+    /*
+     * Ciphers and print one character at a time in p.
+     */
     for( int i = 0, n = strlen(p); i < n ; i++ )
     {
         if( isalpha( p[i] ) )                                   // cipher only if alphabetical
