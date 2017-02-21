@@ -1,3 +1,7 @@
+/*
+ * Ciphers a text according to a key
+ */
+
 #include <stdio.h>
 #include <cs50.h>
 #include <ctype.h>
@@ -5,7 +9,10 @@
 
 int main( int argc, string argv[] )
 {
-    //// check if user only entered one argument (key) after launch command ////
+    /*
+     * Checks if user only entered one argument (key) after launch command
+     */
+    
     if( argc > 2 )
     {
         printf( "Usage: ./vigenere k\n" );
@@ -20,7 +27,9 @@ int main( int argc, string argv[] )
     string k = argv[1];
     int m = strlen(k);
     
-    //// check if user entered only alphabetical chars after launch command ////
+    /*
+     * Checks if user entered only alphabetical chars after launch command.
+     */
     for( int j = 0; j < m; )
     {
         if( isalpha( k[j] ) )
@@ -39,7 +48,9 @@ int main( int argc, string argv[] )
     
     printf( "ciphertext: " );
     
-    //// cipher and print one character at a time in p ////
+    /*
+     * Ciphers and print one character at a time in p.
+     */
     for( int i = 0, j = 0, n = strlen(p); i < n ; i++)
     {
         if( islower( k[j] ) )
