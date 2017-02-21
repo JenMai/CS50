@@ -14,7 +14,9 @@ int main(void)
 {
     float dollars;
                                            
-    // -- get a non-negative float input from user (turns into float if integer) --
+    /*
+     * Gets a non-negative float input from user.
+     */
     printf("O hai! ");
     do
     {
@@ -24,26 +26,30 @@ int main(void)
     while( dollars < 0 );
    
 
-    //-- get the minimum number of coins needed --
+    /*
+     * Gets the minimum number of coins needed.
+     */
    
     while (dollars >= 1)
     {
-        total += 4;                                // 4 quarters in a dollar, removes one dollar from input
+        total += 4;                                 // 4 quarters in a dollar, removes one dollar from input
         dollars -= 1;
     }
    
-    int cents = dollars * 100.01;                   //convert dollars into cents; rounds; gets an integer
+    int cents = dollars * 100.01;                   // convert dollars into cents; rounds; gets an integer
  
     cents = get_coins( cents, QUARTER );
     cents = get_coins( cents, DIME );
     cents = get_coins( cents, NICKEL );
     cents = get_coins( cents, PENNY );
    
-    printf("%i\n", total);                          //the total number of coins needed
+    printf("%i\n", total);                          // total number of coins needed
  
 }
 
-// -- to get the highest number of coin possible for quarters, then dimes... --
+/*
+ * Gets the highest number of coin possible for quarters, ...
+ */
 int get_coins( int x, int Y )  
 {
     while( x/Y > 0 )
