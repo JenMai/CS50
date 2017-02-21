@@ -1,3 +1,7 @@
+/*
+ * Ciphers a text according to a key
+ */
+
 #include <stdio.h>
 #include <cs50.h>
 #include <ctype.h>
