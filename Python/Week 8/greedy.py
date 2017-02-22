@@ -29,10 +29,6 @@ def main():
     
     total = 0
     
-    while dollars >= 1.00:
-        total += 4
-        dollars -= 1.00
-    
     dollars = round(dollars, 2) * 100
     dollars = int(dollars)
 
