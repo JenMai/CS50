@@ -32,19 +32,17 @@ def main():
     dollars = round(dollars, 2) * 100
     dollars = int(dollars)
 
-    total += dollars / QUARTER
+    total += dollars // QUARTER
     dollars %= QUARTER
     
-    total += dollars / DIME
+    total += dollars // DIME
     dollars %= DIME
     
-    total += dollars / NICKEL
+    total += dollars // NICKEL
     dollars %= NICKEL
     
-    total += dollars / PENNY
+    total += dollars // PENNY
     dollars %= PENNY
-    
-    total = int(total)                   # total is somehow a float
     
     print("{}".format(total))
     
