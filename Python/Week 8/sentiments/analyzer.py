@@ -19,6 +19,7 @@ class Analyzer():
                     line = line.strip(" ")
                     line = line.replace("\n", "")
                     self.positives.append(line)
+        lines.close()
                     
         with open("negative-words.txt") as lines:
             for line in lines:
@@ -27,7 +28,8 @@ class Analyzer():
                 else:
                     line = line.strip(" ")
                     line = line.replace("\n", "")
-                    self.negatives.append(line)
+                    self.negatives.append(line)       
+        lines.close()
 
     def analyze(self, text):
         """Analyze text for sentiment, returning its score."""
