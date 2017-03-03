@@ -200,7 +200,7 @@ def quote():
             lkPrice = usd(lkCheck["price"]) # format price
             return render_template("quoted.html", name=lkName, symbol=lkSymbol, price=lkPrice)
         
-    else: # if page requested with GET
+    else:
         return render_template("quote.html")
 
 
