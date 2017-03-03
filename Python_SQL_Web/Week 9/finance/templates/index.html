@@ -1,0 +1,43 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %}
+            {% if success %}
+                <p class=error><strong>Bought!:</strong> {{ success }}
+            {% endif %}
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Symbol</th>
+                <th>Name</th>
+                <th>Shares</th>
+                <th>Price</th>
+                <th>Total</th>
+            </tr>
+        </thead>
+        <tboby>
+            {% for stock in portfolio %}
+            {% if stock.shares >= 1 %}
+            <tr>
+            <td>{{ stock.symbol }}</td>
+            <td>{{ stock.name }}</td>
+            <td>{{ stock.shares }}</td>
+            <td>{{ stock.price }}</td>
+            <td>{{ stock.total }}</td>
+            </tr>
+            {% endif %}
+            {% endfor %}
+            <tr>
+                <td colspan="4">CASH</td>
+                <td>{{cashUser}}</td>
+            </tr>
+            <tr>
+                <td colspan="4"></td>
+                <td>{{grdTotal}}</td>
+            </tr>
+        </tboby>
+    </table>
+{% endblock %}
