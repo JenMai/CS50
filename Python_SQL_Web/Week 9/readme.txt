@@ -7,3 +7,5 @@ Implement index() and index.html
 Implement sell() and sell.html
 Implement history() and history.html
 Implement a personal touch : Empower users to change their passwords
+
+Staff solution: http://pset7.cs50.net/
