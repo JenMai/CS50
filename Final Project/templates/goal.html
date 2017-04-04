@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Goals for {{task[1]}}
+{% endblock %}
+
+{% block main %}
+    <script>goal_list()</script>
+    <div id= "currentTask">{{task[1]}}</div>
+    <div hidden id="currentTaskID">{{task[0]}}</div>
+    <div id="goals">
+        <p>Goal: {{task[2]}}</p>
+        {% if subgoals == None %}
+        <p> No subgoal yet! </p>
+        {% else %}
+        <fieldset class="subsBox">
+        <ul>
+        {% for sub in subgoals %}
+        <li><input type="checkbox" value="{{sub[0]}}"> {% if sub[2] == 1 %}<del> {% endif %} {{sub[1]}}</li>
+        {% endfor %}
+        </ul>
+        <button class="crossbtn btn btn-default btn-sm"><span class="glyphicon glyphicon-pencil"></span> Cross out as done</button> <button class="delbtn btn btn-default btn-sm"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+        </fieldset>
+        {% endif %}
+        <button class="btn btn-default btn-sm" id="addbtn"><span class="glyphicon glyphicon-plus"></span> Add subgoal</button>
+        
+        <form id="addSubgoal" data-toggle="validator">
+        <div class="form-group" id="subForm">
+            <input autocomplete="off" class="form-control" id="subgoal" placeholder="Sub-goal" type="text" pattern=".{5,100}" data-error="Sub-goal must be between 5 and 100 characters long" required/>
+            <div class="help-block with-errors"></div>
+            <button class="btn btn-default" id="add" type="submit">Add</button>
+        </div>
+        </form>
+    </div>
+{% endblock %}

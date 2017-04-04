@@ -1,0 +1,44 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Index
+{% endblock %}
+
+{% block main %} 
+    <div class="table-responsive">
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th>Task</th>
+                <th>Refs.</th>
+                <th>Objective</th>
+                <th>Left</th>
+                <th>Done</th>
+                <th>Timer</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tboby>
+            {% for task in tasks %}
+            <tr {% if task['minleft'] == 0 %}class="success"{% endif %}>
+            <td id="{{ task['task_id'] }}"><a href="{{ url_for('goal') }}?g={{ task['task'] }}" id="g">{{ task['task'] }}</a></td>
+            <td><a href="{{ url_for('ref') }}?r={{ task['task'] }}" id="r"><button class="btn btn-info btn-xs"><span class="glyphicon glyphicon-book"></span></button></a></td>
+            <td>{{ task['objective'] }}</td>
+            <td>{{ task['minleft'] // 60 }} : {%if task['minleft'] % 60 in range(0,10) %}0{%endif%}{{ task['minleft'] % 60 }}</td>
+            <td>{{ task['mindone'] // 60 }} : {%if task['mindone'] % 60 in range(0,10) %}0{%endif%}{{ task['mindone'] % 60 }} <a onclick="reset_done('{{ task['task_id'] }}');"><span class="glyphicon glyphicon-refresh"></a></span></td>
+            <td><a href="{{ url_for('timer') }}?t={{ task['task'] }}" id="t"><button class="btn btn-info btn-xs"><span class="glyphicon glyphicon-dashboard"></span></button></a></td>
+            <td><button class="btn btn-primary btn-xs" onclick="delete_task('{{ task['task_id'] }}');"><span class="glyphicon glyphicon-trash"></span></button></td>
+            </tr>
+            {% endfor %}
+            <tr>
+                <td colspan="3">TOTAL TIME</td>
+                <td>{{ totalLeft // 60 }} : {%if totalLeft % 60 in range(0,10) %}0{%endif%}{{ totalLeft % 60 }}</td>
+                <td>{{ totalDone // 60 }} : {%if totalDone % 60 in range(0,10) %}0{%endif%}{{ totalDone % 60 }}</td>
+            </tr>
+        </tboby>
+    </table>
+    </div>
+    
+
+{% endblock %}
+

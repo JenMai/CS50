@@ -1,0 +1,35 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    References for {{task[1]}}
+{% endblock %}
+
+{% block main %}
+    <script>reference_list()</script>
+    <div id= "currentTask">{{task[1]}}</div>
+    <div hidden id="currentTaskID">{{task[0]}}</div>
+    <div id="references">
+        {% if references == None %}
+        <p>No reference yet!</p>
+        {% else %}
+        <fieldset class="refBox">
+        <ul>
+        {% for ref in references %}
+        <li><input type="checkbox" value="{{ref[0]}}">{% if ref[2] != 'None' %} <a href="{{ref[2]}}">{{ref[1]}}</a>{% else %} {{ref[1]}} {% endif %}</li>
+        {% endfor %}
+        </ul>
+        <button class="delbtn btn btn-default btn-sm"><span class="glyphicon glyphicon-trash"></span> Delete</button>
+        </fieldset>
+        {% endif %}
+        <button class="btn btn-default btn-sm" id="addbtn"><span class="glyphicon glyphicon-plus"></span> Add a reference</button>
+        
+        <form id="addRef" data-toggle="validator">
+        <div class="form-group" id="refForm">
+            <input autocomplete="off" class="form-control" id="refTitle" placeholder="Reference" type="text" pattern=".{5,100}" data-error="Reference must be between 5 and 100 characters long" required/>
+            <div class="help-block with-errors"></div>
+            <input autocomplete="off" class="form-control" id="refLink" placeholder="URL" data-error="Missing URL" type="text" required/>
+            <button class="btn btn-default" id="add" type="submit">Add</button>
+        </div>
+        </form>
+    </div>
+{% endblock %}

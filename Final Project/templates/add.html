@@ -1,0 +1,24 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Add task
+{% endblock %}
+
+{% block main %}
+    <form id="addTask" data-toggle="validator">
+        <fieldset>
+            <div class="form-group">
+                <input autocomplete="off" autofocus class="form-control" id="task" placeholder="Task name" type="text" maxlength="20" data-error="Name your task" required/>
+                <div class="help-block with-errors"></div>
+            </div>
+            <div class="form-group">
+                <input autocomplete="off" class="form-control" id="hour" placeholder="hh" type="number" min="0"/> : <input autocomplete="off" autofocus class="form-control" id="minute" placeholder="mm" type="number" min="0" max="59" data-error="Set the time you're willing to spend on that task (0 otherwise)" required/>
+                <div class="help-block with-errors"></div>
+            </div>
+            <div class="form-group">
+                <input autocomplete="off" autofocus class="form-control" id="goal" placeholder="Goal (optionnal)" type="text" maxlength="100"/>
+            </div>
+                <button class="btn btn-info btn-lg" type="submit" onclick="new_task()">Add</button>
+        </fieldset>
+    </form>
+{% endblock %}

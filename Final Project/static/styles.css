@@ -1,0 +1,98 @@
+/* navbar logo */
+.navbar-brand
+{
+    color: #537fbe;
+}
+
+.navbar-brand .slogan
+{
+    font-size: 70%;
+}
+
+.addbtn
+{
+    color: #ffffff;    
+}
+
+.addbtn:hover 
+{
+    color: #537fbe;
+}
+
+.alert-info
+{
+    text-align: center;  
+}
+
+main .form-control
+{
+    /* center form controls */
+    display: inline-block;
+    max-width: 15%;
+}
+
+#addTask
+{
+    /* center contents */
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+}
+
+#goal, #subgoal
+{
+    /* change size of goal and subgoal forms */
+    max-width: 30%;
+}
+
+#hour, #minute
+{
+    max-width: 7%;
+}
+
+#currentTask, #easyTimer
+{
+    /* main layout for timer */
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    font-size: 300%;
+}
+
+#currentTask
+{
+    font-size: 300%;
+    color: #537fbe;
+}
+
+#currentTaskID
+{
+    /* fit background's color in case hidden would not be supported */
+    color: #ffffff;    
+}
+
+.subsBox ul, .refBox ul 
+{
+  /* Remove default bullets from list */  
+  list-style-type: none;
+}
+
+.subsBox li, .refBox li
+{
+    font-size: 120%;
+
+}
+
+p
+{
+    text-align: center;
+    font-size: 150%;
+}
+
+
+main td
+{
+    /* left-align tables' cells */
+    font-size: 120%;
+    text-align: left;
+}
