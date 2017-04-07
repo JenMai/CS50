@@ -4,6 +4,6 @@
 <br>
 (Source: Harvard University, http://online-learning.harvard.edu/course/cs50-introduction-computer-science )
 
-![Schedule](class-schedule.PNG?raw=true) <br>
+![Schedule](https://github.com/JenMai/CS50/blob/master/class_schedule.PNG) <br>
 (on-site students', online course is self-paced) <br>
 (Source: CS50x lecture)
