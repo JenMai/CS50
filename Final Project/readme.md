@@ -11,3 +11,8 @@ My project is a "bullet journal", or planner, to follow the time you spend on a 
 This application is implemented with Python, Javascript (Jquery), SQL and HTML/CSS, which were the languages I learnt from the classes, albeit it will potentially be a phone app, which suits its purpose better (besides that it would be the occasion to fix some of its flaws).
 
 The project must be introduced by way of [a short video](https://youtu.be/5e4DZoM8ol8).
+
+### To do/improve :
+ - [ ] better data management (i.e.: objective as integer and not as string/pre-formatted)
+ - [ ] feature: edit objective
+ - [ ] sum total time spent for a task?
