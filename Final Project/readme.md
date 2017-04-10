@@ -8,7 +8,7 @@ Source: CS50's documentation.
 
 My project is a "bullet journal", or planner, to follow the time you spend on a task or a project, your goals, as well as the materials you're using to achieve them.
 
-This application is implemented with Python, Javascript (Jquery), SQL and HTML/CSS, which were the languages I learnt from the classes, albeit it will potentially be a phone app, which suits its purpose better (besides that it would be the occasion to fix some of its flaws).
+This application is implemented with Python, Javascript (Jquery), SQL and HTML/CSS, which are the languages I have learnt from the course, albeit it will potentially be a phone app, which suits its purpose better (besides that it would be the occasion to fix some of its flaws).
 
 The project must be introduced by way of [a short video](https://youtu.be/5e4DZoM8ol8).
 
