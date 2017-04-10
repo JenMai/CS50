@@ -13,6 +13,6 @@ This application is implemented with Python, Javascript (Jquery), SQL and HTML/C
 The project must be introduced by way of [a short video](https://youtu.be/5e4DZoM8ol8).
 
 ### To do/improve :
- - [ ] better data management (i.e.: objective as integer and not as string/pre-formatted)
+ - [ ] better database management (i.e.: objective as integer and not as string/pre-formatted)
  - [ ] feature: edit objective
  - [ ] sum total time spent for a task?
