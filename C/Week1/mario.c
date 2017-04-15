@@ -24,7 +24,7 @@ int main(void)
     
     for (int row = 0 ; row < height; ++row)                 //for each row
         {
-            for (int space = row ; space < height; ++space) // print 'decreasingly' blank tiles first
+            for (int space = row+1 ; space < height; ++space) // print 'decreasingly' blank tiles first
             {
                 printf( " " );
             }
