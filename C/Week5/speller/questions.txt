@@ -31,7 +31,7 @@ and stats about the textfile and functions' running time are printed.
 
 5.  Why do you think we used fgetc to read each word’s characters one at a time rather than use fscanf with a format string like "%s" 
     to read whole words at a time? Put another way, what problems might arise by relying on fscanf alone?
-If fscanf passed through wole words at a time, they would be passed in before checking if each of those words are legal, leading in
+If fscanf passed through whole words at a time, they would be passed in before checking if each of those words are legal, leading in
 unnecessary resources used.
 
 6.  Why do you think we declared the parameters for check and load as const (which means "constant")?
