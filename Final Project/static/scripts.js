@@ -197,8 +197,8 @@ function reference_list(){
             
             var refTitle = $('#refTitle').val().replace(/['"]/g,"\\'").replace(/[#+-]/g,'');
 
-            shortener = $.ajax({                                                        // use Google's URL shortener ( to set: API_KEY)
-                url: 'https://www.googleapis.com/urlshortener/v1/url?shortUrl=http://goo.gl/fbsS&key=AIzaSyBky553Iel_8tqqawewCiZUQ01jaqSj3VM',
+            shortener = $.ajax({                                                        // use Google's URL shortener
+                url: 'https://www.googleapis.com/urlshortener/v1/url?shortUrl=http://goo.gl/MYAPI_KEY',
                 type: 'POST',
                 contentType: 'application/json; charset=utf-8',
                 data: '{ longUrl: "' + $('#refLink').val() +'"}',
